@@ -1,3 +1,4 @@
+// Gulp 빌드 스크립트
 "use strict";
 
 // Load plugins
