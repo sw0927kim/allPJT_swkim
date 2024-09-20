@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'sass_processor',
     'board',
-    'testapp',
+    'masterhome',
+    'refweb',
 ]
 
 SASS_PROCESSOR_ROOT = os.path.join(BASE_DIR, 'static')
