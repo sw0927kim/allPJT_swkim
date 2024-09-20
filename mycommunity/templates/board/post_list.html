@@ -1,11 +1,11 @@
-{% extends 'board/base.html' %}
+{% extends 'Common/base.html' %}
 
 {% block title %}Post List{% endblock %}
 
 {% block content %}
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h2>Post List</h2>
-        <a href="{% url 'post_new' %}" class="btn btn-primary">New Post</a>
+        <a href="{% url 'board:post_new' %}" class="btn btn-primary">New Post</a>
     </div>
 
     <table class="table table-striped">
@@ -25,7 +25,7 @@
                 <td>{{ forloop.counter }}</td> <!-- 글 번호 -->
                 <td>{{ post.author.username }}</td> <!-- 작성자 이름 -->
                 <td>
-                    <a href="{% url 'post_detail' post.pk %}">
+                    <a href="{% url 'board:post_detail' post.pk %}">
                         {{ post.title }}
                     </a>
                 </td>

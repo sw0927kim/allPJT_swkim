@@ -37,7 +37,7 @@ def post_detail(request, pk):
             comment.post = post
             comment.author = request.user  # 로그인한 사용자를 댓글 작성자로 설정
             comment.save()
-            return redirect('post_detail', pk=post.pk)
+            return redirect('board:post_detail', pk=post.pk)
     else:
         comment_form = CommentForm()
 
@@ -50,7 +50,7 @@ def post_new(request):
             post = form.save(commit=False)
             post.author = request.user  # 현재 로그인한 사용자를 작성자로 설정
             post.save()
-            return redirect('post_detail', pk=post.pk)
+            return redirect('board:post_detail', pk=post.pk)
     else:
         form = PostForm()
     return render(request, 'board/post_form.html', {'form': form})
@@ -64,7 +64,7 @@ def post_edit(request, pk):
             post = form.save(commit=False)
             post.author = request.user  # 작성자 변경 없이 현재 로그인한 사용자 유지
             post.save()
-            return redirect('post_detail', pk=post.pk)
+            return redirect('board:post_detail', pk=post.pk)
     else:
         form = PostForm(instance=post)
     return render(request, 'board/post_form.html', {'form': form})
@@ -76,7 +76,7 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('post_list')  # 회원가입 후 게시글 목록 페이지로 리디렉트
+            return redirect('board:post_list')  # 회원가입 후 게시글 목록 페이지로 리디렉트
     else:
         form = SignUpForm()
     return render(request, 'registration/signup.html', {'form': form})
