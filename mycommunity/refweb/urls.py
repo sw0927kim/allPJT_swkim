@@ -14,11 +14,11 @@ urlpatterns = [
     path('Animations/', views.Animations, name='Animations'),
     path('Other/', views.Other, name='Other'),
     # Pages
-    path('Login/', views.Login, name='Login'),
-    path('Register/', views.Register, name='Register'),
-    path('ForgotPassword/', views.ForgotPassword, name='ForgotPassword'),
-    path('Page404/', views.Page404, name='Page404'),
-    path('BlankPage/', views.BlankPage, name='BlankPage'),
+    path('Login/', views.Login, name='refweb_Login'),
+    path('Register/', views.Register, name='refweb_Register'),
+    path('ForgotPassword/', views.ForgotPassword, name='refweb_ForgotPassword'),
+    path('Page404/', views.Page404, name='refweb_Page404'),
+    path('BlankPage/', views.BlankPage, name='refweb_BlankPage'),
 
     path('Charts/', views.Charts, name='Charts'),
     path('Tables/', views.Tables, name='Tables'),
