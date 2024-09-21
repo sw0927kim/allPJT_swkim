@@ -6,13 +6,13 @@ urlpatterns = [
     path('', views.index, name='index'),
 
     # Components
-    path('Buttons/', views.Buttons, name='Buttons'),
-    path('Cards/', views.Cards, name='Cards'),
+    path('Buttons/', views.Buttons, name='refweb_Buttons'),
+    path('Cards/', views.Cards, name='refweb_Cards'),
     # Utilities
-    path('Colors/', views.Colors, name='Colors'),
-    path('Borders/', views.Borders, name='Borders'),
-    path('Animations/', views.Animations, name='Animations'),
-    path('Other/', views.Other, name='Other'),
+    path('Colors/', views.Colors, name='refweb_Colors'),
+    path('Borders/', views.Borders, name='refweb_Borders'),
+    path('Animations/', views.Animations, name='refweb_Animations'),
+    path('Other/', views.Other, name='refweb_Other'),
     # Pages
     path('Login/', views.Login, name='refweb_Login'),
     path('Register/', views.Register, name='refweb_Register'),
@@ -20,6 +20,6 @@ urlpatterns = [
     path('Page404/', views.Page404, name='refweb_Page404'),
     path('BlankPage/', views.BlankPage, name='refweb_BlankPage'),
 
-    path('Charts/', views.Charts, name='Charts'),
-    path('Tables/', views.Tables, name='Tables'),
+    path('Charts/', views.Charts, name='refweb_Charts'),
+    path('Tables/', views.Tables, name='refweb_Tables'),
 ]
