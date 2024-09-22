@@ -1,6 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import user_passes_test
 from django.http import HttpResponseForbidden
+from .forms import CustomUserCreationForm
+from django.contrib import messages
+
 def group_check(user):
     return user.groups.filter(name='ButtonAccessGroup').exists()
 
@@ -27,11 +30,22 @@ def other(request):
 
     # Pages
 def login(request):
-    return render(request, 'registration/login.html')
+    return render(request, 'registration/refweb_login.html')
+
 def register(request):
-    return render(request, 'registration/register.html')
-def forgotpassword(request):
-    return render(request, 'registration/forgot-password.html')
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.username = form.cleaned_data.get('username')  # 'id' 대신 'username' 사용
+            user.first_name = form.cleaned_data.get('name')  # 'name' 필드를 'first_name'에 저장
+            user.save()
+            return redirect('masterhome:index')
+        messages.error(request, "Unsuccessful registration. Invalid information.")
+    else:
+        form = CustomUserCreationForm()
+    return render(request, 'registration/refweb_register.html', {'form': form})
+
 def page404(request):
     return render(request, 'error/404.html')
 def blankpage(request):
