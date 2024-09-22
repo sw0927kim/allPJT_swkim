@@ -197,13 +197,13 @@
             </li>
         {% else %}
             <li class="nav-item">
-                <a class="nav-link" href="">
+                <a class="nav-link" href="{% url 'masterhome:login' %}">
                     <i class="fas fa-sign-in-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                     Login
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">
+                <a class="nav-link" href="{% url 'masterhome:register' %}">
                     <i class="fas fa-user-plus fa-sm fa-fw mr-2 text-gray-400"></i>
                     Register
                 </a>

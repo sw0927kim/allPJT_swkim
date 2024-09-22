@@ -92,7 +92,7 @@ DATABASES = {
 }
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = 'masterhome:index'
-LOGOUT_REDIRECT_URL = 'masterhome:login'
+LOGOUT_REDIRECT_URL = '/'
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 

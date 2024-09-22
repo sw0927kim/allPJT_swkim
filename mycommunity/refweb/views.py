@@ -1,37 +1,43 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import user_passes_test
+from django.http import HttpResponseForbidden
+def group_check(user):
+    return user.groups.filter(name='ButtonAccessGroup').exists()
 
 def index(request):
     return render(request, 'refweb/index.html')
 
-    # Components
-def Buttons(request):
+def buttons(request):
+    if not group_check(request.user):
+        return HttpResponseForbidden("해당 페이지에 대한 권한이 없습니다. 관리자에게 문의하세요!.")
     return render(request, 'Component/buttons.html')
-def Cards(request):
+
+def cards(request):
     return render(request, 'Component/cards.html')
 
     # Utilities
-def Colors(request):
+def colors(request):
     return render(request, 'utilities/utilities-color.html')
-def Borders(request):
+def borders(request):
     return render(request, 'utilities/utilities-border.html')
-def Animations(request):
+def animations(request):
     return render(request, 'utilities/utilities-animation.html')
-def Other(request):
+def other(request):
     return render(request, 'utilities/utilities-other.html')
 
     # Pages
-def Login(request):
-    return render(request, 'Registration/login.html')
-def Register(request):
-    return render(request, 'Registration/register.html')
-def ForgotPassword(request):
-    return render(request, 'Registration/forgot-password.html')
-def Page404(request):
+def login(request):
+    return render(request, 'registration/login.html')
+def register(request):
+    return render(request, 'registration/register.html')
+def forgotpassword(request):
+    return render(request, 'registration/forgot-password.html')
+def page404(request):
     return render(request, 'error/404.html')
-def BlankPage(request):
+def blankpage(request):
     return render(request, 'Common/blank.html')
 
-def Charts(request):
+def charts(request):
     return render(request, 'Component/charts.html')
-def Tables(request):
+def tables(request):
     return render(request, 'Component/tables.html')
