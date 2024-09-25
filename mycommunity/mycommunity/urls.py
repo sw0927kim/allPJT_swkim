@@ -9,4 +9,5 @@ urlpatterns = [
     path('', include('masterhome.urls')),
     path('refweb/', include('refweb.urls')),
     path('board/', include('board.urls')),
+    path('TTTT/', include('TTTT.urls')),  # TTTT 앱 등록
 ]

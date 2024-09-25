@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'board',
     'masterhome',
     'refweb',
+    'TTTT',
 ]
 
 SASS_PROCESSOR_ROOT = os.path.join(BASE_DIR, 'static')
